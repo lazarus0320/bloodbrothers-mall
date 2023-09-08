@@ -4,6 +4,7 @@ import { server } from '../mocks/server'
 import 'tailwindcss/tailwind.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Header from '@/components/Header'
+import Carousel from '@/components/Carousel'
 
 interface Product {
   id: number
@@ -23,6 +24,7 @@ const IndexPage = ({ product }: IndexPageProps) => {
   return (
     <div>
       <Header />
+      <Carousel />
       {product.map((product) => (
         <div key={product.id}>
           <h1>{product.name}</h1>
