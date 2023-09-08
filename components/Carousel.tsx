@@ -21,11 +21,11 @@ export const Carousel = () => {
   }, [emblaApi])
 
   return (
-    <div className="relative w-full h-80">
-      <div className="absolute top-0 w-full h-full" ref={emblaRef}>
+    <div className="relative w-full h-full">
+      <div ref={emblaRef}>
         <div className="flex space-x-4">
           {slideUrls.map((url, index) => (
-            <div key={index} className="w-full h-full flex-shrink-0">
+            <div key={index} className="flex-shrink-0">
               <Image
                 src={url}
                 alt={`Slide ${index + 1}`}
