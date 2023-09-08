@@ -16,12 +16,15 @@ export const Carousel = () => {
 
   useEffect(() => {
     if (!emblaApi) return
-    emblaApi?.on('select', () => console.log(`Current index is ${emblaApi.selectedScrollSnap()}`))
-    console.log('Emble API:', emblaApi)
-  }, [emblaApi])
+    const timerId = setInterval(scrollNext, 4000)
+
+    // emblaApi?.on('select', () => console.log(`Current index is ${emblaApi.selectedScrollSnap()}`))
+    // console.log('Emble API:', emblaApi)
+    return () => clearInterval(timerId)
+  }, [emblaApi, scrollNext])
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full overflow-hidden">
       <div ref={emblaRef}>
         <div className="flex space-x-4">
           {slideUrls.map((url, index) => (

@@ -7,7 +7,7 @@ import SearchBar from './SearchBar'
 const Header = () => {
   return (
     <>
-      <nav className="flex justify-between p-3 bg-white border-1 border-[#081F2D] text-#081F2D">
+      <nav className="flex justify-between p-3 bg-white border-t-[1px] border-b-[1px] border-darkblue text-darkblue">
         <div className="flex items-center space-x-12">
           <Link href="/" passHref>
             <div className="cursor-pointer">
