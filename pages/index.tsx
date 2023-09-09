@@ -2,7 +2,6 @@ import axios from 'axios'
 import { GetServerSideProps } from 'next'
 import { server } from '../mocks/server'
 import 'tailwindcss/tailwind.css'
-import 'bootstrap/dist/css/bootstrap.css'
 import Header from '@/components/Header'
 import Carousel from '@/components/Carousel'
 import NewArrival from '@/components/NewArrival'
@@ -28,12 +27,7 @@ const IndexPage = ({ product }: IndexPageProps) => {
       <Carousel />
       <div className="w-full h-[100px]" />
       <NewArrival />
-      {product.map((product) => (
-        <div key={product.id}>
-          <h1>{product.name}</h1>
-          <p>{product.price}</p>
-        </div>
-      ))}
+      <div className="w-full h-[100px]" />
     </div>
   )
 }

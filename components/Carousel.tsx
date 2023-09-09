@@ -1,3 +1,4 @@
+'use client'
 import useEmblaCarousel from 'embla-carousel-react'
 import { useEffect, useCallback } from 'react'
 import Image from 'next/image'

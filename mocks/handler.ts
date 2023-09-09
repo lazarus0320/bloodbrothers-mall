@@ -1,25 +1,34 @@
+import { Product } from '@/types'
 import { rest } from 'msw'
 
+const generateProduct = (id: number, category: string): Product => {
+  const colors = ['red', 'blue', 'green', 'black']
+
+  return {
+    id: id,
+    name: `Product ${id}`,
+    price: Math.floor(Math.random() * 100),
+    brand: `Brand ${id}`,
+    discountPer: Math.floor(Math.random() * 50),
+    discountedPrice: Math.floor(Math.random() * 50),
+    color: colors[Math.floor(Math.random() * 4)],
+    img: `/clothes/${id}.jpg`,
+    category: category,
+  }
+}
+
 export const handlers = [
-  rest.get('https://bloodbrothers.com/product/list', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json([
-        {
-          id: 1,
-          name: '슬림핏 스트레치 8W 코듀로이 팬츠 (미디엄 브라운)',
-          price: 149000,
-          comment: 0,
-          like: false,
-        },
-        {
-          id: 2,
-          name: '슬림핏 스트레치 8W 코듀로이 팬츠 (네이비)',
-          price: 149000,
-          comment: 0,
-          like: false,
-        },
-      ]),
+  rest.get('https://bloodbrothers.com/new', (req, res, ctx) => {
+    const products = ['남성', '여성', '잡화/슈즈', '키즈'].reduce(
+      (acc: any[], curr: string, idx: number) => {
+        for (let i = 0; i < 5; i++) {
+          acc.push(generateProduct(idx * 5 + i + 1, curr))
+        }
+        return acc
+      },
+      [],
     )
+
+    return res(ctx.status(200), ctx.json(products))
   }),
 ]
