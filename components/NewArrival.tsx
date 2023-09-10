@@ -47,29 +47,30 @@ export const NewArrival = () => {
         ))}
       </div>
       <div mb-8 style={{ maxWidth: '1200px', width: '100%' }}>
-        <Swiper
-          // install Swiper modules
-          modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={4}
-          slidesPerGroup={4}
-          navigation
-          autoplay={{ delay: 5000 }}
-          pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
-        >
-          {filteredProducts.map((product) => (
-            <SwiperSlide key={product.id}>
-              <Image src={product.img} alt={product.name} width={300} height={300} />
-              <div className="py-2">
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-          <div className="h-[30px]" />
-        </Swiper>
+        {tabs.map((tab) =>
+          activeTab === tab ? (
+            <Swiper
+              key={tab}
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
+              spaceBetween={30}
+              slidesPerView={4}
+              slidesPerGroup={4}
+              navigation
+              pagination={{ clickable: true }}
+            >
+              {filteredProducts.map((product) => (
+                <SwiperSlide key={product.id}>
+                  <Image src={product.img} alt={product.name} width={300} height={300} />
+                  <div className="py-2">
+                    <p>{product.name}</p>
+                    <p>{product.price}</p>
+                  </div>
+                </SwiperSlide>
+              ))}
+              <div className="h-[30px]" />
+            </Swiper>
+          ) : null,
+        )}
       </div>
     </div>
   )

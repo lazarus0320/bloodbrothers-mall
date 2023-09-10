@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FavoriteBorder, AccountCircle, ShoppingCart, Logout } from '@mui/icons-material'
+import { Search, FavoriteBorder, AccountCircle, ShoppingCart, Logout } from '@mui/icons-material'
 import { HeaderItem } from './HeaderItems'
 import SearchBar from './SearchBar'
 
 const Header = () => {
   return (
-    <>
+    <div className="fixed w-full z-50">
       <nav className="flex justify-between p-3 bg-white border-t-[1px] border-b-[1px] border-darkblue text-darkblue">
         <div className="flex items-center space-x-12">
           <Link href="/" passHref>
@@ -32,15 +32,16 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="flex justify-end mr-6">
+        <div className="flex justify-end mr-6 items-center">
+          <HeaderItem Icon={Search} />
           <HeaderItem Icon={FavoriteBorder} />
           <HeaderItem Icon={AccountCircle} />
           <HeaderItem Icon={ShoppingCart} />
           <HeaderItem Icon={Logout} />
         </div>
       </nav>
-      <SearchBar />
-    </>
+      {/* <SearchBar /> */}
+    </div>
   )
 }
 

@@ -5,6 +5,7 @@ import 'tailwindcss/tailwind.css'
 import Header from '@/components/Header'
 import Carousel from '@/components/Carousel'
 import NewArrival from '@/components/NewArrival'
+import Head from 'next/head'
 
 interface Product {
   id: number
@@ -22,13 +23,13 @@ const IndexPage = ({ product }: IndexPageProps) => {
   if (!product) return <div>Loading...</div>
 
   return (
-    <div>
+    <>
       <Header />
       <Carousel />
       <div className="w-full h-[100px]" />
       <NewArrival />
       <div className="w-full h-[100px]" />
-    </div>
+    </>
   )
 }
 

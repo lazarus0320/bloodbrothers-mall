@@ -25,7 +25,7 @@ export const Carousel = () => {
   }, [emblaApi, scrollNext])
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden pt-5">
       <div ref={emblaRef}>
         <div className="flex space-x-4">
           {slideUrls.map((url, index) => (

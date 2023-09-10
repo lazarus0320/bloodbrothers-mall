@@ -3,7 +3,7 @@ import { Search } from '@mui/icons-material'
 
 export const SearchBar = () => {
   return (
-    <div className="flex items-center m-1">
+    <div className="flex w-full items-center m-1">
       <div className="ml-8">
         <Search fontSize="large" />
       </div>
