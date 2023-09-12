@@ -6,6 +6,8 @@ import Header from '@/components/Header'
 import Carousel from '@/components/Carousel'
 import NewArrival from '@/components/NewArrival'
 import Head from 'next/head'
+import Layout from '@/components/layout'
+import Link from 'next/link'
 
 interface Product {
   id: number
@@ -24,11 +26,26 @@ const IndexPage = ({ product }: IndexPageProps) => {
 
   return (
     <>
-      <Header />
+      {/* <Header />
       <Carousel />
       <div className="w-full h-[100px]" />
       <NewArrival />
-      <div className="w-full h-[100px]" />
+      <div className="w-full h-[100px]" /> */}
+      <Head>
+        <title>JWT Test</title>
+        <meta name="description" content="JWT fuck you" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Layout>
+        <h1>Home</h1>
+        <p>
+          <Link href="/signup">Sign up</Link>
+        </p>
+        <p>
+          <Link href="/signin">Sign In</Link>
+        </p>
+      </Layout>
     </>
   )
 }
